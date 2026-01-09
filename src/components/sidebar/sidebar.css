@@ -1,0 +1,188 @@
+/* =========================
+   SIDEBAR – CORE LAYOUT
+========================= */
+.sidebar {
+  width: 16rem;               /* Giữ nguyên kích thước */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem 1.25rem;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(248, 250, 252, 0.96)
+  );
+
+  backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(20, 184, 166, 0.15);
+
+  box-shadow:
+    6px 0 28px rgba(0, 0, 0, 0.06),
+    inset -1px 0 0 rgba(255, 255, 255, 0.4);
+
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+/* =========================
+   SIDEBAR HEADER
+========================= */
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.2;
+
+  background: linear-gradient(90deg, #0f766e, #14b8a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar-subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #64748b;
+  letter-spacing: 0.4px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+.sidebar-nav {
+  flex: 1;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* =========================
+   MENU ITEM
+========================= */
+.sidebar-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.95rem 1.2rem;
+  border-radius: 1.1rem;
+
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+
+  transition: all 0.25s ease;
+}
+
+/* Vạch nhấn bên trái */
+.sidebar-link::before {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 0;
+  height: 60%;
+  border-radius: 999px;
+  background: #14b8a6;
+
+  transition: width 0.25s ease;
+}
+
+/* Hover */
+.sidebar-link:hover {
+  background: rgba(20, 184, 166, 0.08);
+  color: #0f766e;
+  padding-left: 1.4rem;
+}
+
+.sidebar-link:hover::before {
+  width: 4px;
+}
+
+/* Active */
+.sidebar-link.active {
+  background: linear-gradient(90deg, #14b8a6, #0d9488);
+  color: #ffffff;
+  font-weight: 600;
+
+  box-shadow: 0 8px 22px rgba(20, 184, 166, 0.35);
+}
+
+.sidebar-link.active::before {
+  width: 0;
+}
+
+/* =========================
+   ICON & LABEL
+========================= */
+.sidebar-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.sidebar-label {
+  flex: 1;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(20, 184, 166, 0.15);
+}
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+.sidebar-logout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.9rem 1.2rem;
+  border-radius: 1.1rem;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #64748b;
+
+  transition: all 0.25s ease;
+}
+
+.sidebar-logout:hover {
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
+}

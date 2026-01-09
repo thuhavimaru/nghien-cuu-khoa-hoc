@@ -1,0 +1,224 @@
+/* dashboard.css - Phiên bản đẹp, đồng bộ màu với Duplicate.css */
+
+.dashboard-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2fe, #f0fdfa);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f766e;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-subtitle {
+  text-align: center;
+  color: #475569;
+  font-size: 19px;
+  margin-bottom: 50px;
+  font-weight: 500;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 40px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #14b8a6, #0d9488);
+  border-radius: 28px 28px 0 0;
+}
+
+.stat-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 70px rgba(20, 184, 166, 0.2);
+  border-color: rgba(20, 184, 166, 0.3);
+}
+
+.stat-card h3 {
+  color: #134e4a;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.stat-number {
+  font-size: 4.2rem;
+  font-weight: 800;
+  color: #0d9488;
+  margin: 10px 0;
+}
+
+/* Đặc biệt cho card "Hôm nay" */
+.stat-card.today .stat-number {
+  color: #dc2626; /* đỏ nổi bật cho giao dịch hôm nay */
+}
+
+/* Biểu đồ cột */
+.chart-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
+  border: 2px solid rgba(20, 184, 166, 0.2);
+}
+
+.chart-card h2 {
+  text-align: center;
+  color: #0f766e;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+
+.bar-chart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 50px;
+  height: 420px;
+  padding: 0 30px;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.bar-wrapper {
+  position: relative;
+  width: 90px;
+}
+
+.bar {
+  width: 100%;
+  background: linear-gradient(to top, #14b8a6, #0d9488);
+  border-radius: 16px 16px 0 0;
+  transition: all 0.5s ease;
+  box-shadow: 0 8px 25px rgba(20, 184, 166, 0.4);
+}
+
+.bar:hover {
+  background: linear-gradient(to top, #0d9488, #0891b2);
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(20, 184, 166, 0.6);
+}
+
+.bar-label {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f766e;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.bar-year {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #134e4a;
+}
+
+/* Bảng giao dịch gần đây */
+.table-container {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(20, 184, 166, 0.2);
+}
+
+.table-title {
+  padding: 40px 40px 20px;
+  text-align: center;
+  color: #0f766e;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table th {
+  background: rgba(20, 184, 166, 0.1);
+  padding: 20px;
+  text-align: left;
+  color: #0f766e;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.transactions-table td {
+  padding: 25px 20px;
+  border-top: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.transactions-table tr:hover {
+  background: rgba(20, 184, 166, 0.08);
+}
+
+.type-badge {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(to right, #14b8a6, #0d9488);
+  display: inline-block;
+}
+
+.tx-hash {
+  font-family: 'Courier New', monospace;
+  color: #0d9488;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.dashboard-footer {
+  text-align: center;
+  margin-top: 80px;
+  color: #475569;
+  font-size: 1.1rem;
+  font-style: italic;
+}

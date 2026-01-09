@@ -1,0 +1,109 @@
+.issue-page {
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e0f2fe, #f0fdfa);
+  min-height: 100vh;
+}
+
+.issue-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.issue-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #0f766e;
+  margin-bottom: 8px;
+}
+
+.issue-subtitle {
+  text-align: center;
+  color: #475569;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.issue-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.issue-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #134e4a;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 16px;
+  border: 2px solid #14b8a6;
+  border-radius: 14px;
+  font-size: 16px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  background: #14b8a6;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 300px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #0d9488;
+  transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+}
