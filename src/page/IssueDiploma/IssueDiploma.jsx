@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./IssueDiploma.css";
-
 const IssueDiploma = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 

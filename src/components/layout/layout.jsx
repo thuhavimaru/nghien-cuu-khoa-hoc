@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from '../sidebar/sidebar';
 import Header from '../header/header';
-import './layout.css'; // nếu cần style thêm cho layout
+import './layout.css';
 
 const Layout = ({ children }) => {
   return (
@@ -9,11 +9,13 @@ const Layout = ({ children }) => {
       {/* Sidebar cố định bên trái */}
       <Sidebar />
 
-      {/* Phần chính: Header + Nội dung trang */}
+      {/* Header cố định phía trên, KHÔNG nằm trong main-content */}
+      <Header />
+
+      {/* Nội dung chính */}
       <div className="main-content">
-        <Header />
         <div className="page-content">
-          {children} {/* Đây là nơi render Dashboard, StudentInfo, v.v. */}
+          {children}
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Duplicate.css"; // Có thể dùng chung với IssueDiploma.css
+import "./Duplicate.css";
 
 const Duplicate = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -8,8 +8,8 @@ const Duplicate = () => {
     receiverName: "",
     count: 1,
     notes: "",
-    issueAt: new Date().toISOString().split("T")[0], // hôm nay
-    serialNumber: "",        // số seri văn bằng gốc
+    issueAt: new Date().toISOString().split("T")[0],
+    serialNumber: "",
     holderName: "",
     citizenId: "",
     birthDate: "",
@@ -19,7 +19,11 @@ const Duplicate = () => {
   });
 
   const handleChange = (e) => {
-    const value = e.target.name === "count" ? parseInt(e.target.value) || 1 : e.target.value;
+    const value =
+      e.target.name === "count"
+        ? parseInt(e.target.value) || 1
+        : e.target.value;
+
     setFormData({ ...formData, [e.target.name]: value });
   };
 
@@ -28,17 +32,30 @@ const Duplicate = () => {
     setIsSubmitting(true);
 
     setTimeout(() => {
-      const fakeHash = "0x" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-      alert(`Cấp bản sao văn bằng thành công!\n\nSố lượng: ${formData.count} bản\nNgười nhận: ${formData.receiverName}\nVăn bằng gốc: ${formData.serialNumber}\nTransaction Hash: ${fakeHash}`);
+      const fakeHash =
+        "0x" +
+        Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+
+      alert(
+        `Cấp bản sao văn bằng thành công!\n\n` +
+          `Số lượng: ${formData.count} bản\n` +
+          `Người nhận: ${formData.receiverName}\n` +
+          `Văn bằng gốc: ${formData.serialNumber}\n` +
+          `Transaction Hash: ${fakeHash}`
+      );
+
       setIsSubmitting(false);
     }, 2000);
   };
 
   return (
-    <div className="issue-page">
+    <div className="duplicate-page">
       <div className="issue-container">
         <h1 className="issue-title">Tạo Bản Sao Văn bằng</h1>
-        <p className="issue-subtitle">Trường Đại học Hàng Hải Việt Nam - Hệ thống Blockchain</p>
+        <p className="issue-subtitle">
+          Trường Đại học Hàng Hải Việt Nam - Hệ thống Blockchain
+        </p>
 
         <div className="issue-card">
           <form onSubmit={handleSubmit} className="issue-form">
@@ -141,7 +158,6 @@ const Duplicate = () => {
                   value={formData.receiverName}
                   onChange={handleChange}
                   required
-                  placeholder="Họ tên người được cấp bản sao"
                 />
               </div>
 
@@ -155,7 +171,7 @@ const Duplicate = () => {
                 />
               </div>
 
-              {/* Ghi chú full width */}
+              {/* Ghi chú */}
               <div className="form-group full-width">
                 <label>Ghi chú</label>
                 <textarea
@@ -163,14 +179,19 @@ const Duplicate = () => {
                   value={formData.notes}
                   onChange={handleChange}
                   rows="4"
-                  placeholder="Lý do cấp bản sao, mục đích sử dụng..."
                 />
               </div>
             </div>
 
             <div className="form-actions">
-              <button type="submit" disabled={isSubmitting} className="submit-btn">
-                {isSubmitting ? "Đang ghi lên Blockchain..." : "Cấp Bản Sao & Ghi Blockchain"}
+              <button
+                type="submit"
+                className="submit-btn"
+                disabled={isSubmitting}
+              >
+                {isSubmitting
+                  ? "Đang ghi lên Blockchain..."
+                  : "Cấp Bản Sao & Ghi Blockchain"}
               </button>
             </div>
           </form>

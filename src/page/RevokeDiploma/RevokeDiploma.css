@@ -1,6 +1,10 @@
 .revoke-page {
   padding: 40px 20px;
-  background: linear-gradient(135deg, #e0f2fe, #f0fdfa);
+  background: linear-gradient(
+    135deg,
+    #f0f7ff,   /* xanh rất nhạt */
+    #f7f5ff    /* tím lavender rất nhẹ */
+  );
   min-height: 100vh;
 }
 
@@ -9,33 +13,35 @@
   margin: 0 auto;
 }
 
+/* TITLE */
 .revoke-title {
   text-align: center;
-  font-size: 36px;
-  font-weight: 800;
-  color: #0f766e;
-  margin-bottom: 8px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #4338ca; /* tím xanh trung tính */
+  margin-bottom: 6px;
 }
 
 .revoke-subtitle {
   text-align: center;
-  color: #475569;
-  margin-bottom: 40px;
-  font-size: 18px;
+  color: #64748b;
+  margin-bottom: 36px;
+  font-size: 17px;
 }
 
+/* CARD */
 .revoke-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  border-radius: 28px;
-  padding: 40px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.12);
 }
 
+/* FORM */
 .revoke-form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 28px;
 }
 
 .revoke-form-grid {
@@ -53,57 +59,88 @@
   grid-column: 1 / -1;
 }
 
+/* LABEL */
 .revoke-form-group label {
   font-weight: 600;
-  color: #134e4a;
-  margin-bottom: 8px;
-  font-size: 15px;
+  color: #475569;
+  margin-bottom: 6px;
+  font-size: 14.5px;
 }
 
+/* INPUT */
 .revoke-form-group input,
 .revoke-form-group select,
 .revoke-form-group textarea {
-  padding: 16px;
-  border: 2px solid #14b8a6;
-  border-radius: 14px;
-  font-size: 16px;
-  background: white;
-  transition: all 0.3s ease;
+  padding: 14px 16px;
+  border: 1.5px solid #dbeafe; /* xanh pastel */
+  border-radius: 12px;
+  font-size: 15px;
+  background: #ffffff;
+  transition: all 0.2s ease;
 }
 
 .revoke-form-group input:focus,
 .revoke-form-group select:focus,
 .revoke-form-group textarea:focus {
   outline: none;
-  border-color: #0d9488;
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+  border-color: #a5b4fc; /* tím nhạt */
+  box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.35);
 }
 
+/* ACTION */
 .revoke-form-actions {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
-.revoke-submit-btn {
-  background: #14b8a6;
-  color: white;
-  font-size: 18px;
+/* BUTTON – THU HỒI */
+.revoke-btn {
+  background: linear-gradient(
+    135deg,
+    #7c3aed,   /* tím rõ */
+    #5b21b6
+  );
+  color: #ffffff;
+  font-size: 16.5px;
   font-weight: 700;
-  padding: 16px 40px;
+  padding: 14px 36px;
   border: none;
-  border-radius: 16px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 300px;
+  min-width: 280px;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* gọn, không blur */
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
 }
 
-.revoke-submit-btn:hover:not(:disabled) {
-  background: #0d9488;
-  transform: translateY(-2px);
+/* Hover – đổi sắc, không glow */
+.revoke-btn:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    #6d28d9,
+    #4c1d95
+  );
 }
 
-.revoke-submit-btn:disabled {
-  background: #94a3b8;
+/* Active – đậm, chắc tay */
+.revoke-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  background: linear-gradient(
+    135deg,
+    #5b21b6,
+    #3b0764
+  );
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Disabled */
+.revoke-btn:disabled {
+  background: #ddd6fe;
+  color: #6b7280;
   cursor: not-allowed;
-  transform: none;
+  box-shadow: none;
 }

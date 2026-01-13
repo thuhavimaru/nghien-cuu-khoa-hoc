@@ -17,10 +17,7 @@ const menuItems = [
   { to: '/issue-diploma', icon: FileText, label: 'Cấp Văn bằng Chính thức' },
   { to: '/appendix', icon: Copy, label: 'Tạo Phụ lục' },
   { to: '/duplicate', icon: Copy, label: 'Tạo Bản Sao' },
-  { to: '/verify', icon: CheckCircle, label: 'Xác thực Văn bằng' },
   { to: '/revoke', icon: Shield, label: 'Thu hồi Văn bằng' },
-  { to: '/explorer', icon: Globe, label: 'Blockchain Explorer' },
-  { to: '/settings', icon: Settings, label: 'Cài đặt' },
 ];
 
 const Sidebar = () => {

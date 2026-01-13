@@ -4,34 +4,70 @@
   background-color: #f9fafb;
 }
 
+/* =========================
+   SIDEBAR (ĐÈ HEADER)
+========================= */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 16rem;
   height: 100vh;
-  overflow-y: auto;
-  z-index: 30; /* THẤP HƠN HEADER */
-  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.08);
+
+  z-index: 100; /* CAO NHẤT */
 }
 
+/* =========================
+   HEADER (BỊ SIDEBAR ĐÈ)
+========================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 56px;
+  background-color: #ffffff;
+
+  z-index: 50; /* THẤP HƠN SIDEBAR */
+
+  display: flex;
+  align-items: center;
+  border-radius: 0; /* mép vuông */
+}
+
+/* =========================
+   NỘI DUNG TRONG HEADER
+========================= */
+.header-inner {
+  margin-left: 16rem;                /* né sidebar */
+  width: calc(100% - 16rem);
+
+  padding: 0 1.75rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
 .main-content {
   flex: 1;
-  margin-left: 16.5rem; /* tránh bóng sidebar */
+  margin-left: 16rem;
+  padding-top: 56px; /* tránh header */
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50; /* CAO NHẤT */
-  background-color: white !important; /* BẮT BUỘC */
-}
-
+/* =========================
+   PAGE CONTENT
+========================= */
 .page-content {
   flex: 1;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   overflow-y: auto;
 }

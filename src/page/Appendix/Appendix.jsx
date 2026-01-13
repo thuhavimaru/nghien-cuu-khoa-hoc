@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Appendix.css"; // Có thể dùng chung với IssueDiploma.css
+import "./Appendix.css";
 
 const Appendix = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,7 +13,7 @@ const Appendix = () => {
     content: "",
     receiverSignatureName: "",
     notes: "",
-    issueDate: new Date().toISOString().split("T")[0], // Ngày cấp phụ lục
+    issueDate: new Date().toISOString().split("T")[0],
   });
 
   const handleChange = (e) => {
@@ -25,17 +25,30 @@ const Appendix = () => {
     setIsSubmitting(true);
 
     setTimeout(() => {
-      const fakeHash = "0x" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-      alert(`Tạo Phụ lục Văn bằng thành công!\n\nHọ tên: ${formData.holderName}\nVăn bằng gốc: ${formData.oldSerial}\nSố phụ lục mới: ${formData.newSerial}\nTransaction Hash: ${fakeHash}`);
+      const fakeHash =
+        "0x" +
+        Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+
+      alert(
+        `Tạo Phụ lục Văn bằng thành công!\n\n` +
+          `Họ tên: ${formData.holderName}\n` +
+          `Văn bằng gốc: ${formData.oldSerial}\n` +
+          `Số phụ lục mới: ${formData.newSerial}\n` +
+          `Transaction Hash: ${fakeHash}`
+      );
+
       setIsSubmitting(false);
     }, 2000);
   };
 
   return (
-    <div className="issue-page">
+    <div className="appendix-page">
       <div className="issue-container">
         <h1 className="issue-title">Tạo Phụ lục Văn bằng</h1>
-        <p className="issue-subtitle">Trường Đại học Hàng Hải Việt Nam - Hệ thống Blockchain</p>
+        <p className="issue-subtitle">
+          Trường Đại học Hàng Hải Việt Nam - Hệ thống Blockchain
+        </p>
 
         <div className="issue-card">
           <form onSubmit={handleSubmit} className="issue-form">
@@ -43,58 +56,112 @@ const Appendix = () => {
               {/* Hàng 1 */}
               <div className="form-group">
                 <label>Họ và tên *</label>
-                <input name="holderName" value={formData.holderName} onChange={handleChange} required />
+                <input
+                  name="holderName"
+                  value={formData.holderName}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label>Ngày sinh *</label>
-                <input type="date" name="birthDate" value={formData.birthDate} onChange={handleChange} required />
+                <input
+                  type="date"
+                  name="birthDate"
+                  value={formData.birthDate}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               {/* Hàng 2 */}
               <div className="form-group">
                 <label>Số seri văn bằng gốc *</label>
-                <input name="oldSerial" value={formData.oldSerial} onChange={handleChange} required placeholder="VD: VB2025-001" />
+                <input
+                  name="oldSerial"
+                  value={formData.oldSerial}
+                  onChange={handleChange}
+                  required
+                  placeholder="VD: VB2025-001"
+                />
               </div>
 
               <div className="form-group">
                 <label>Số seri phụ lục mới *</label>
-                <input name="newSerial" value={formData.newSerial} onChange={handleChange} required placeholder="VD: PL2025-001" />
+                <input
+                  name="newSerial"
+                  value={formData.newSerial}
+                  onChange={handleChange}
+                  required
+                  placeholder="VD: PL2025-001"
+                />
               </div>
 
               {/* Hàng 3 */}
               <div className="form-group">
                 <label>ID bổ sung</label>
-                <input name="newId" value={formData.newId} onChange={handleChange} placeholder="Nếu có" />
+                <input
+                  name="newId"
+                  value={formData.newId}
+                  onChange={handleChange}
+                  placeholder="Nếu có"
+                />
               </div>
 
               <div className="form-group">
                 <label>Ngày cấp phụ lục</label>
-                <input type="date" name="issueDate" value={formData.issueDate} onChange={handleChange} />
+                <input
+                  type="date"
+                  name="issueDate"
+                  value={formData.issueDate}
+                  onChange={handleChange}
+                />
               </div>
 
-              {/* Hàng 4 - full width */}
+              {/* Hàng 4 */}
               <div className="form-group full-width">
                 <label>Nội dung bổ sung / sửa đổi *</label>
-                <textarea name="content" value={formData.content} onChange={handleChange} rows="5" required placeholder="Mô tả chi tiết nội dung bổ sung (ngành thứ 2, xếp loại thay đổi, v.v.)" />
+                <textarea
+                  name="content"
+                  value={formData.content}
+                  onChange={handleChange}
+                  rows="5"
+                  required
+                />
               </div>
 
               {/* Hàng 5 */}
               <div className="form-group">
                 <label>Tên người nhận (ký nhận)</label>
-                <input name="receiverSignatureName" value={formData.receiverSignatureName} onChange={handleChange} />
+                <input
+                  name="receiverSignatureName"
+                  value={formData.receiverSignatureName}
+                  onChange={handleChange}
+                />
               </div>
 
-              {/* Ghi chú full width */}
+              {/* Ghi chú */}
               <div className="form-group full-width">
                 <label>Ghi chú</label>
-                <textarea name="notes" value={formData.notes} onChange={handleChange} rows="4" placeholder="Thông tin bổ sung khác..." />
+                <textarea
+                  name="notes"
+                  value={formData.notes}
+                  onChange={handleChange}
+                  rows="4"
+                />
               </div>
             </div>
 
             <div className="form-actions">
-              <button type="submit" disabled={isSubmitting} className="submit-btn">
-                {isSubmitting ? "Đang ghi lên Blockchain..." : "Tạo Phụ lục & Ghi Blockchain"}
+              <button
+                type="submit"
+                className="submit-btn"
+                disabled={isSubmitting}
+              >
+                {isSubmitting
+                  ? "Đang ghi lên Blockchain..."
+                  : "Tạo Phụ lục & Ghi Blockchain"}
               </button>
             </div>
           </form>

@@ -1,32 +1,24 @@
-/* =========================
-   HEADER – CORE
-========================= */
 .header {
-  position: relative;
-  height: 88px; /* giữ nguyên */
-  width: calc(100% - 2.7rem);
-  margin: 1.5rem 2.5rem 1.5rem 0.2rem;
+  position: fixed;
+  top: 0;
+  left: 16rem;              /* bắt đầu sau sidebar */
+  right: 0;
+  height: 56px;
+  z-index: 50;
+
+  background: linear-gradient(
+    90deg,
+    #f0f9ff,   /* xanh baby */
+    #fdf4ff    /* tím hồng pastel */
+  );
+
+  border-radius: 0;
+  box-shadow: 0 2px 10px rgba(148, 163, 184, 0.25);
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  padding: 1.2rem 3rem 1.2rem 1.8rem;
-  box-sizing: border-box;
-
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #f0fdfa 100%
-  );
-
-  border-radius: 1.6rem;
-  box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-
-  overflow: hidden;
 }
+
 
 /* =========================
    OVERLAY
@@ -36,8 +28,8 @@
   inset: 0;
   background: linear-gradient(
     120deg,
-    rgba(20, 184, 166, 0.06),
-    rgba(255, 255, 255, 0.02)
+    rgba(186, 230, 253, 0.35),
+    rgba(221, 214, 254, 0.25)
   );
   pointer-events: none;
 }
@@ -45,21 +37,25 @@
 /* =========================
    LEFT
 ========================= */
+/* Dịch toàn bộ cụm bên trái sang phải */
 .header-left {
   display: flex;
   align-items: center;
   gap: 1.25rem;
   flex: 1;
+
+  padding-left: 8rem; /* ← DỊCH SANG PHẢI */
 }
+
 
 .header-logo {
   width: 3rem;
-  height: 3rem;
-  border-radius: 0.9rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.5rem;
   object-fit: contain;
 
-  box-shadow:
-    0 6px 14px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(147, 197, 253, 0.6);
 }
 
 /* =========================
@@ -73,24 +69,24 @@
 
 .header-search-icon {
   position: absolute;
-  left: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #14b8a6;
+  width: 1.05rem;
+  height: 1.05rem;
+  left: 0.85rem;
+  color: #60a5fa; /* xanh pastel */
 }
 
 .header-search-input {
   width: 100%;
-  padding: 0.7rem 1.25rem 0.7rem 3rem;
-  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem 0.5rem 2.6rem;
+  font-size: 0.85rem;
 
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
 
   border-radius: 9999px;
-  border: 1.5px solid rgba(20, 184, 166, 0.2);
+ border: 1.5px solid #bae6fd;
 
   transition: all 0.25s ease;
 }
@@ -98,10 +94,10 @@
 .header-search-input:focus {
   outline: none;
   background: #ffffff;
-  border-color: #14b8a6;
+  border-color: #93c5fd;
 
   box-shadow:
-    0 0 0 4px rgba(20, 184, 166, 0.15);
+    0 0 0 4px rgba(147, 197, 253, 0.35);
 }
 
 /* =========================
@@ -119,10 +115,10 @@
 .header-notification-btn {
   position: relative;
 
-  padding: 0.65rem;
+  padding: 0.5rem;
   border-radius: 9999px;
 
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   cursor: pointer;
 
@@ -130,14 +126,14 @@
 }
 
 .header-notification-btn:hover {
-  background: rgba(20, 184, 166, 0.18);
+  background: rgba(196, 181, 253, 0.45);
   transform: scale(1.08);
 }
 
 .header-bell-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: #0f766e;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #818cf8;
 }
 
 .header-notification-badge {
@@ -145,14 +141,13 @@
   top: -3px;
   right: -3px;
 
-  width: 1.35rem;
-  height: 1.35rem;
-
-  font-size: 0.7rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  font-size: 0.65rem;
   font-weight: 700;
 
-  background: #ef4444;
-  color: white;
+   background: #fda4af;
+  color: #7f1d1d;
 
   border-radius: 9999px;
   border: 2px solid white;
@@ -168,23 +163,24 @@
 .header-user {
   display: flex;
   align-items: center;
-  gap: 0.875rem;
+  gap: 0.6rem;
 
-  padding: 0.45rem 1rem;
+  padding: 0;              /* bỏ padding thừa */
+  background: transparent; /* ❌ bỏ nền trắng */
+  border-radius: 0;        /* ❌ bỏ bo tròn */
 
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-
-  border-radius: 9999px;
+  height: 100%;            /* nằm gọn trong header */
 }
 
+
+
 .header-avatar {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.2rem;
+  height: 2.2rem;
   border-radius: 9999px;
 
   overflow: hidden;
-  border: 2.5px solid #14b8a6;
+  border: 2px solid #c4b5fd;
 }
 
 .header-avatar img {
@@ -198,12 +194,25 @@
 }
 
 .header-username {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #0f766e;
+  color: #6366f1;
 }
 
 .header-role {
-  font-size: 0.78rem;
-  color: #475569;
+  font-size: 0.7rem;
+  color: #64748b;
+}
+.header-inner {
+  margin-left: 16rem;              /* né sidebar */
+  width: calc(100% - 16rem);
+
+  padding: 0 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  z-index: 1;
 }
